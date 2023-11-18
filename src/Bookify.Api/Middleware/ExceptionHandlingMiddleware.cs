@@ -1,5 +1,5 @@
-﻿using Bookify.Application.Exceptions;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Bookify.Application.Exceptions;
 
 namespace Bookify.Api.Middleware;
 
@@ -9,7 +9,7 @@ public class ExceptionHandlingMiddleware
     private readonly ILogger<ExceptionHandlingMiddleware> _logger;
 
     public ExceptionHandlingMiddleware(
-        RequestDelegate next,
+        RequestDelegate next, 
         ILogger<ExceptionHandlingMiddleware> logger)
     {
         _next = next;
@@ -33,7 +33,7 @@ public class ExceptionHandlingMiddleware
                 Status = exceptionDetails.Status,
                 Type = exceptionDetails.Type,
                 Title = exceptionDetails.Title,
-                Detail = exceptionDetails.Detail,
+                Detail = exceptionDetails.Detail
             };
 
             if (exceptionDetails.Errors is not null)

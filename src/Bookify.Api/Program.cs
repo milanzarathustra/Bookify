@@ -21,12 +21,17 @@ if (app.Environment.IsDevelopment())
 
     app.ApplyMigrations();
 
-    app.SeedData();
+    // Used one time to Seed Data - TODO : Make improvements to see if data already exists?
+    //app.SeedData(); 
 }
 
 app.UseHttpsRedirection();
 
 app.UseCustomExceptionHandler();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllers();
 
